@@ -23,7 +23,9 @@ export const Footer = () => {
 const styles = StyleSheet.create({ 
     footer: {
         backgroundColor: '#ffffff',
-        padding: 16,
+        padding: 20,
+        paddingHorizontal: 30,
         alignItems: 'flex-end',
+        marginBottom: 20,
     },
 });

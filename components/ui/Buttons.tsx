@@ -24,13 +24,12 @@ export const Button: React.FC<ClearButtonProps> = ({ onPress, children }) => {
 
 const styles = StyleSheet.create({
     button: {
-        flex: 1,
         flexDirection: 'row',
         gap: 6,
         backgroundColor: '#9E9E9E',
-        padding: 10,
-        paddingHorizontal: 20,
-        borderRadius: 18,
+        padding: 16,
+        paddingHorizontal: 24,
+        borderRadius: 20,
         alignItems: 'center',
     },
 });

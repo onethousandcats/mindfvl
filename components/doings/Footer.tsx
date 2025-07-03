@@ -25,7 +25,9 @@ export const Footer = () => {
 
 const styles = StyleSheet.create({ 
     footer: {  
-        padding: 16,
+        padding: 20,
+        paddingHorizontal: 30,
         alignItems: 'center',
+        marginBottom: 20,
     },
 });
