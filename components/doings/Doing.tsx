@@ -24,7 +24,7 @@ export const Doing: React.FC<DoingProps> = ({ id }) => {
     };
 
     const goToHabit = () => {
-        router.push(`/habit/${item.title}`);
+        router.push(`/habit/${id}`);
     }
     
     return (

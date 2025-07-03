@@ -11,6 +11,12 @@ $doings.set({
     '4': { title: `Go for a walk`, completed: false },
     '5': { title: `Work on videogame`, completed: false },
     '6': { title: `Do yoga`, completed: false },
+    // '7': { title: `Meditate`, completed: false },
+    // '8': { title: `Drink 2L of water`, completed: false },
+    // '9': { title: `Write 500 words`, completed: false },
+    // '10': { title: `Practice guitar`, completed: false },
+    // '11': { title: `Practice piano`, completed: false },
+
     });
 
 $doings.subscribe((doing) => {

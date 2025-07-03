@@ -12,20 +12,18 @@ export const Footer = () => {
 
     return (
         <View style={styles.footer}>
-            {/* <Text style={{ fontSize: 16, color: '#888' }}>
-                Made with ❤️ by Sen
-            </Text> */}
             <Button onPress={goBack}>
-                <Ionicons name="arrow-back" size={16} />
-                <Text>Back</Text>
+                <Ionicons name="add" size={16} />
+                <Text>Add Doing</Text>
             </Button>
         </View>
     )
 }
 
 const styles = StyleSheet.create({ 
-    footer: {  
+    footer: {
+        backgroundColor: '#ffffff',
         padding: 16,
-        alignItems: 'center',
+        alignItems: 'flex-end',
     },
 });

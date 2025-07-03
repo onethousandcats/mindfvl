@@ -15,6 +15,8 @@ export const Card: React.FC<CardProps> = ({ children, onPress }) => {
 
 const styles = StyleSheet.create({
     card: {
+        borderWidth: 1,
+        borderColor: '#0f0f0f',
         backgroundColor: '#ffffff',
         marginTop: 10,
         marginBottom: 10,

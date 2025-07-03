@@ -26,11 +26,11 @@ const styles = StyleSheet.create({
     button: {
         flex: 1,
         flexDirection: 'row',
-        gap: 14,
-        backgroundColor: '#FFF',
+        gap: 6,
+        backgroundColor: '#9E9E9E',
         padding: 10,
         paddingHorizontal: 20,
-        borderRadius: 10,
+        borderRadius: 18,
         alignItems: 'center',
     },
 });

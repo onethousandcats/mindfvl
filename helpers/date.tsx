@@ -1,0 +1,1 @@
+export const today = () => new Intl.DateTimeFormat('en-US').format(new Date());
