@@ -1,4 +1,4 @@
-import { GestureResponderEvent, StyleSheet, TouchableOpacity } from 'react-native';
+import { GestureResponderEvent, StyleSheet, View } from 'react-native';
 
 type CardProps = {
     children: React.ReactNode,
@@ -7,9 +7,9 @@ type CardProps = {
 
 export const Card: React.FC<CardProps> = ({ children, onPress }) => {
     return (
-        <TouchableOpacity onPress={onPress} style={styles.card}>
+        <View style={styles.card}>
             { children }
-        </TouchableOpacity>
+        </View>
     );
 }
 
