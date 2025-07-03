@@ -6,6 +6,6 @@ export const Header: React.FC<TextProps> = ({ style, ...props }) => (
 
 const styles = StyleSheet.create({
     header: {
-        fontSize: 28,
+        fontSize: 36,
     }
 });
