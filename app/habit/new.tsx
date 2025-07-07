@@ -2,7 +2,7 @@ import { Button, ClearButton } from "@/components/ui/Buttons";
 import { Header } from "@/components/ui/Header";
 import { TextBox } from "@/components/ui/Input";
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function NewHabit() {
     const router = useRouter();
@@ -22,12 +22,8 @@ export default function NewHabit() {
                 </View>
             </View>
             <View style={styles.footer}>
-                <Button onPress={goBack}>
-                    <Text>Create</Text>
-                </Button>
-                <ClearButton onPress={goBack}>
-                    <Text>Cancel</Text> 
-                </ClearButton>
+                <Button onPress={goBack} text="Create" />
+                <ClearButton onPress={goBack} text="Cancel" />
             </View>
         </View>
     )

@@ -1,31 +1,38 @@
+import { Ionicons } from "@expo/vector-icons";
 import React from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TextStyle, TouchableOpacity } from "react-native";
 
-type ClearButtonProps = {
+type ButtonProps = {
     onPress: () => void;
-    children: React.ReactNode;
+    icon: string;
+    text: string;
+    iconSize: number;
+    textStyle: TextStyle;
 }
 
-export const UnstyledButton: React.FC<ClearButtonProps> = ({ onPress, children }) => {
+export const UnstyledButton: React.FC<ButtonProps> = ({ onPress, icon, text, iconSize=16, textStyle={}  }) => {
     return (
         <TouchableOpacity onPress={onPress} style={{}}>
-            {children}
+            { icon !== undefined && <Ionicons name={icon} size={iconSize} /> } 
+            { text !== undefined && <Text style={textStyle}>{ text }</Text> }
         </TouchableOpacity>
     );    
 }
 
-export const ClearButton: React.FC<ClearButtonProps> = ({ onPress, children }) => {
+export const ClearButton: React.FC<ButtonProps> = ({ onPress, icon, text, iconSize=16, textStyle={}  }) => {
     return (
         <TouchableOpacity onPress={onPress} style={[ styles.general ]}>
-            {children}
+            { icon !== undefined && <Ionicons name={icon} size={iconSize} /> } 
+            { text !== undefined && <Text style={textStyle}>{ text }</Text> }
         </TouchableOpacity>
     );
 }
 
-export const Button: React.FC<ClearButtonProps> = ({ onPress, children }) => {
+export const Button: React.FC<ButtonProps> = ({ onPress, icon, text, iconSize=16, textStyle={} }) => {
     return (
         <TouchableOpacity onPress={onPress} style={[ styles.button, styles.general ]}>
-            {children}
+            { icon !== undefined && <Ionicons name={icon} size={iconSize} /> } 
+            { text !== undefined && <Text style={textStyle}>{ text }</Text> }
         </TouchableOpacity>
     );
 }
@@ -40,7 +47,7 @@ const styles = StyleSheet.create({
         gap: 6,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 16,
-        paddingHorizontal: 24,
+        padding: 10,
+        paddingHorizontal: 12,
     }
 });

@@ -2,20 +2,22 @@ import { Doing } from "@/components/doings/Doing";
 import { Footer } from "@/components/home/Footer";
 import { Header } from "@/components/ui/Header";
 import { Subheader } from "@/components/ui/Subheader";
-import { today } from "@/helpers/date";
+import { formattedDate } from "@/helpers/date";
+import { $currentDate } from "@/stores/DateStore";
 import { $doings } from "@/stores/DoingsStore";
 import { useStore } from '@nanostores/react';
 import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 
 export default function Index() {
   const doings = useStore($doings);
+  const currentDate = useStore($currentDate);
 
   return (
     <>
       <SafeAreaView style={styles.container}>
         <View>
           <Header>Doings</Header>
-          <Subheader>{ today() }</Subheader>
+          <Subheader>{ formattedDate(currentDate.substring(0, 10)) }</Subheader>
         </View>
         <ScrollView>
           { Object.entries(doings).map(([key, _]) => (
