@@ -1,4 +1,3 @@
-import { Footer } from "@/components/doings/Footer";
 import { Header } from "@/components/ui/Header";
 import { $doings } from "@/stores/DoingsStore";
 import { useStore } from "@nanostores/react";
@@ -11,10 +10,7 @@ export default function HabitScreen() {
 
     return (
         <View style={styles.container}>
-            <View style={styles.content}>
-                <Header>{ item.title }</Header>
-            </View>
-            <Footer />
+            <Header>{ item.title }</Header>
         </View>
     )
 }
@@ -23,7 +19,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        marginTop: 80,
+        marginTop: 40,
         gap: 30,
     },
     content: {

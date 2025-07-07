@@ -4,7 +4,7 @@ import { useStore } from '@nanostores/react';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Text } from 'react-native';
-import { ClearButton } from '../ui/Buttons';
+import { UnstyledButton } from '../ui/Buttons';
 import { Card } from '../ui/Card';
 
 type DoingProps = {
@@ -29,12 +29,12 @@ export const Doing: React.FC<DoingProps> = ({ id }) => {
     
     return (
         <Card>
-            <ClearButton onPress={goToHabit}>
+            <UnstyledButton onPress={goToHabit}>
                 <Text style={{ textDecorationLine: isCompleted ? 'line-through' : 'none', }}>{ item.title }</Text>
-            </ClearButton>
-            <ClearButton onPress={toggleComplete}>
+            </UnstyledButton>
+            <UnstyledButton onPress={toggleComplete}>
                 <Ionicons name={isCompleted? "checkmark-circle" : "checkmark-circle-outline"} size={20} />
-            </ClearButton>
+            </UnstyledButton>
         </Card>
     );
 }  

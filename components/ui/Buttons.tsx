@@ -6,9 +6,17 @@ type ClearButtonProps = {
     children: React.ReactNode;
 }
 
+export const UnstyledButton: React.FC<ClearButtonProps> = ({ onPress, children }) => {
+    return (
+        <TouchableOpacity onPress={onPress} style={{}}>
+            {children}
+        </TouchableOpacity>
+    );    
+}
+
 export const ClearButton: React.FC<ClearButtonProps> = ({ onPress, children }) => {
     return (
-        <TouchableOpacity onPress={onPress} style={{ }}>
+        <TouchableOpacity onPress={onPress} style={[ styles.general ]}>
             {children}
         </TouchableOpacity>
     );
@@ -16,7 +24,7 @@ export const ClearButton: React.FC<ClearButtonProps> = ({ onPress, children }) =
 
 export const Button: React.FC<ClearButtonProps> = ({ onPress, children }) => {
     return (
-        <TouchableOpacity onPress={onPress} style={styles.button}>
+        <TouchableOpacity onPress={onPress} style={[ styles.button, styles.general ]}>
             {children}
         </TouchableOpacity>
     );
@@ -24,12 +32,15 @@ export const Button: React.FC<ClearButtonProps> = ({ onPress, children }) => {
 
 const styles = StyleSheet.create({
     button: {
+        backgroundColor: '#9E9E9E',
+        borderRadius: 20,
+    },
+    general: {
         flexDirection: 'row',
         gap: 6,
-        backgroundColor: '#9E9E9E',
+        justifyContent: 'center',
+        alignItems: 'center',
         padding: 16,
         paddingHorizontal: 24,
-        borderRadius: 20,
-        alignItems: 'center',
-    },
+    }
 });

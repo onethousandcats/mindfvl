@@ -6,13 +6,13 @@ import { Button } from "../ui/Buttons";
 export const Footer = () => {
     const router = useRouter();
 
-    const goBack = () => {
-        router.back();
+    const createNew = () => {
+        router.push(`/habit/new`);
     }
 
     return (
         <View style={styles.footer}>
-            <Button onPress={goBack}>
+            <Button onPress={createNew}>
                 <Ionicons name="add" size={16} />
                 <Text>Add Doing</Text>
             </Button>

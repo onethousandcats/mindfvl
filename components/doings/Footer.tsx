@@ -1,7 +1,5 @@
-import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { StyleSheet, Text, View } from "react-native";
-import { Button } from "../ui/Buttons";
+import { StyleSheet, View } from "react-native";
 
 export const Footer = () => {
     const router = useRouter();
@@ -15,10 +13,10 @@ export const Footer = () => {
             {/* <Text style={{ fontSize: 16, color: '#888' }}>
                 Made with ❤️ by Sen
             </Text> */}
-            <Button onPress={goBack}>
+            {/* <Button onPress={goBack}>
                 <Ionicons name="arrow-back" size={16} />
                 <Text>Back</Text>
-            </Button>
+            </Button> */}
         </View>
     )
 }
