@@ -4,7 +4,7 @@ import { TextBox } from "@/components/ui/Input";
 import { Picker } from "@react-native-picker/picker";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export default function NewHabit() {
     const router = useRouter();
@@ -21,6 +21,7 @@ export default function NewHabit() {
                 <Header>Create Doing</Header>
                 <View style={{ width: '100%' }}>
                     <TextBox label='What do you want to do?' />
+                    <Text>How often do you want to do it?</Text>
                     <Picker
                         selectedValue={frequency}
                         onValueChange={(v, i) => setFrequency(v)}
@@ -29,7 +30,6 @@ export default function NewHabit() {
                         <Picker.Item label="Weekly" value="weekly" />
                         <Picker.Item label="Monthly" value="monthly" />
                     </Picker>
-                    <TextBox label='How often do you want to do it?' />
                     <TextBox label='How long do you want to do it for?' />
                 </View>
             </View>
