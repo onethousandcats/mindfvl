@@ -40,14 +40,14 @@ export const Button: React.FC<ButtonProps> = ({ onPress, icon, text, iconSize=16
 const styles = StyleSheet.create({
     button: {
         backgroundColor: '#9E9E9E',
-        borderRadius: 20,
+        borderRadius: 26,
     },
     general: {
         flexDirection: 'row',
         gap: 6,
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 10,
-        paddingHorizontal: 12,
+        padding: 18,
+        paddingHorizontal: 20,
     }
 });
