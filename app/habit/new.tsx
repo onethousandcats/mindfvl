@@ -1,10 +1,9 @@
 import { Button, ClearButton } from "@/components/ui/Buttons";
 import { Header } from "@/components/ui/Header";
-import { TextBox } from "@/components/ui/Input";
-import { Picker } from "@react-native-picker/picker";
+import { Select, TextBox } from "@/components/ui/Input";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export default function NewHabit() {
     const router = useRouter();
@@ -14,23 +13,18 @@ export default function NewHabit() {
     const goBack = () => {
         router.back();
     }
-    
+
+    const freqOptions = ["Daily", "Weekly", "Monthly"];
+    const durationOptions = ["Week", "Month", "Year"];
+
     return (
         <View style={styles.container}>
             <View style={styles.content}>
                 <Header>Create Doing</Header>
                 <View style={{ width: '100%' }}>
                     <TextBox label='What do you want to do?' />
-                    <Text>How often do you want to do it?</Text>
-                    <Picker
-                        selectedValue={frequency}
-                        onValueChange={(v, i) => setFrequency(v)}
-                    >
-                        <Picker.Item label="Daily" value="daily" />
-                        <Picker.Item label="Weekly" value="weekly" />
-                        <Picker.Item label="Monthly" value="monthly" />
-                    </Picker>
-                    <TextBox label='How long do you want to do it for?' />
+                    <Select label='How often do you want to do it?' options={freqOptions} />
+                    <Select label='How long do you want to do it for?' options={durationOptions} />
                 </View>
             </View>
             <View style={styles.footer}>
