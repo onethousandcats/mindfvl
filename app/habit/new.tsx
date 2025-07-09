@@ -1,6 +1,7 @@
 import { Button, ClearButton } from "@/components/ui/Buttons";
 import { Header } from "@/components/ui/Header";
 import { Select, TextBox } from "@/components/ui/Input";
+import { $doings } from "@/stores/DoingsStore";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
@@ -14,40 +15,52 @@ export default function NewHabit() {
         router.back();
     }
 
+    const createDoing = () => {
+        //const newId = uuidv4();
+
+        $doings.set({
+            ...$doings.get(),
+            ['7']: {
+                title: "test",
+                completed: [],
+            }
+        });
+    }
+
     const freqOptions = ["Daily", "Weekly", "Monthly"];
     const durationOptions = ["Week", "Month", "Year"];
 
+    const quantityOptions = Array.from({ length: 99 }, (_, i) => (i + 1).toString());
+
     return (
-        <View style={styles.container}>
+        <>
             <View style={styles.content}>
                 <Header>Create Doing</Header>
-                <View style={{ width: '100%' }}>
+                <View style={styles.form}>
                     <TextBox label='What do you want to do?' />
                     <Select label='How often do you want to do it?' options={freqOptions} />
-                    <Select label='How long do you want to do it for?' options={durationOptions} />
+                    <Select label='Do it on the magnitude of?' options={durationOptions} />
+                    <Select label='And for how many?' options={quantityOptions} />
                 </View>
             </View>
             <View style={styles.footer}>
-                <Button onPress={goBack} text="Create" />
+                <Button onPress={createDoing} text="Create" />
                 <ClearButton onPress={goBack} text="Cancel" />
             </View>
-        </View>
+        </>
     )
 }
 
 const styles = StyleSheet.create({
-    container: {
+    content: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
         gap: 40,
-        marginTop: 40,
     },
-    content: {
+    form: {
+        flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        gap: 40,
+        gap: 10,
     },
     footer: {
         gap: 20,

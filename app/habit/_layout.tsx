@@ -4,9 +4,7 @@ import { StyleSheet, View } from 'react-native';
 export default function Layout() {
   return (
     <View style={styles.container}>
-        <View style={styles.content}>
-            <Slot />
-        </View>
+        <Slot />
     </View>
   );
 }
@@ -14,12 +12,8 @@ export default function Layout() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
         marginTop: 80,
-        gap: 30,
+        gap: 20,
+        padding: 30,
     },
-    content: {
-        flex: 1,
-        marginHorizontal: 30,
-    }
 });

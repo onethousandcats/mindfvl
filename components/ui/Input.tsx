@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
-import { Animated, Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import { Animated, Dimensions, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { Portal } from 'react-native-portalize';
+
 
 type TextBoxProps = {
     label: string,
@@ -28,6 +29,7 @@ export const Select: React.FC<LabelProps> = ({ label, options }) => {
     const slideAnimation = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
 
     const showSheet = () => {
+        console.log('test');
         setSheetVisible(true);
         Animated.timing(slideAnimation, {
             toValue: 0,
@@ -56,11 +58,12 @@ export const Select: React.FC<LabelProps> = ({ label, options }) => {
         <View style={styles.root}>
             <View style={styles.textBox}>
                 <Text>{ label }</Text>
-                <TouchableOpacity onPress={showSheet}>
+                <TouchableOpacity style={{ zIndex: 100 }} onPress={showSheet}>
                     <TextInput 
                         editable={false}
                         value={selected} 
-                        style={styles.textBoxInput} 
+                        style={styles.textBoxInput}
+                        onPress={showSheet}
                     />
                 </TouchableOpacity>
             </View>
@@ -77,11 +80,13 @@ export const Select: React.FC<LabelProps> = ({ label, options }) => {
                         { transform: [{ translateY: slideAnimation }]}
                     ]}
                 >
-                { options.map((option) => (
-                    <TouchableOpacity key={option} onPress={() => handleSelect(option)} style={styles.option} >
-                        <Text>{ option }</Text>
-                    </TouchableOpacity>
-                ))}
+                    <ScrollView style={styles.optionScrollable}>
+                    { options.map((option) => (
+                        <TouchableOpacity key={option} onPress={() => handleSelect(option)} style={styles.option} >
+                            <Text style={styles.textOption}>{ option }</Text>
+                        </TouchableOpacity>
+                    ))}
+                    </ScrollView>
                 </Animated.View>
             </Portal>
         </View>
@@ -92,12 +97,13 @@ const styles = StyleSheet.create({
     textBox: {
         flex: 1,
         gap: 10,
+        width: '100%',
     },
     textBoxInput: {
         borderWidth: 2,
         padding: 16,
         borderRadius: 10,
-        marginBottom: 30,
+        marginBottom: 10,
     },
     backdrop: {
         ...StyleSheet.absoluteFillObject,
@@ -117,10 +123,18 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 20,
         elevation: 100,
         zIndex: 100,
+        maxHeight: 300,
+    },
+    optionScrollable: {
+        width: '100%',
     },
     option: {
         padding: 16,
-
+        width: '100%',
+    },
+    textOption: {
+        fontSize: 18,
+        textAlign: 'center',
     },
     root: {
         flex: 1,
