@@ -5,6 +5,7 @@ import { Portal } from 'react-native-portalize';
 
 type TextBoxProps = {
     label: string,
+    onChange: (val: string) => void
 };
 
 type LabelProps  = TextBoxProps & {
@@ -13,16 +14,16 @@ type LabelProps  = TextBoxProps & {
 
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
-export const TextBox: React.FC<TextBoxProps> = ({ label }) => {
+export const TextBox: React.FC<TextBoxProps> = ({ label, onChange }) => {
     return (
         <View style={styles.textBox}>
             <Text>{ label }</Text>
-            <TextInput style={styles.textBoxInput} />
+            <TextInput style={styles.textBoxInput} onChangeText={onChange} />
         </View>
     )
 }
 
-export const Select: React.FC<LabelProps> = ({ label, options }) => {
+export const Select: React.FC<LabelProps> = ({ label, options, onChange }) => {
 
     const [selected, setSelected] = useState(options[0]);
     const [sheetVisible, setSheetVisible] = useState(false);
@@ -51,6 +52,7 @@ export const Select: React.FC<LabelProps> = ({ label, options }) => {
 
     const handleSelect = (option: string) => {
         setSelected(option);
+        onChange?.(option);
         hideSheet();
     }
 
@@ -98,6 +100,7 @@ const styles = StyleSheet.create({
         flex: 1,
         gap: 10,
         width: '100%',
+        marginBottom: 26,
     },
     textBoxInput: {
         borderWidth: 2,
