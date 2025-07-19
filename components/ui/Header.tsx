@@ -1,12 +1,12 @@
-import { StyleSheet, Text, TextProps } from 'react-native';
+import { StyleSheet, Text, TextProps } from "react-native";
 
 export const Header: React.FC<TextProps> = ({ style, ...props }) => (
-    <Text {...props} style={[styles.header, style]} />
+  <Text {...props} style={[styles.header, style]} />
 );
 
 const styles = StyleSheet.create({
-    header: {
-        fontSize: 36,
-        fontWeight: 700,
-    }
+  header: {
+    fontSize: 36,
+    fontWeight: 700,
+  },
 });

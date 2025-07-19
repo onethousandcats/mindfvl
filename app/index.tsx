@@ -5,7 +5,7 @@ import { Subheader } from "@/components/ui/Subheader";
 import { formattedDate } from "@/helpers/date";
 import { $currentDate } from "@/stores/DateStore";
 import { $doings } from "@/stores/DoingsStore";
-import { useStore } from '@nanostores/react';
+import { useStore } from "@nanostores/react";
 import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
 
 export default function Index() {
@@ -17,10 +17,10 @@ export default function Index() {
       <SafeAreaView style={styles.container}>
         <View>
           <Header>Doings</Header>
-          <Subheader>{ formattedDate(currentDate.substring(0, 10)) }</Subheader>
+          <Subheader>{formattedDate(currentDate.substring(0, 10))}</Subheader>
         </View>
         <ScrollView>
-          { Object.entries(doings).map(([key, _]) => (
+          {Object.entries(doings).map(([key, _]) => (
             <Doing key={key} id={key} />
           ))}
         </ScrollView>
@@ -33,9 +33,9 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
+    flexDirection: "column",
     marginTop: 100,
     marginHorizontal: 30,
     gap: 30,
   },
-})
+});

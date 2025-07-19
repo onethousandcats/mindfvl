@@ -1,4 +1,4 @@
 export type DoingType = {
-    title: string;
-    completed: string[];
-}
+  title: string;
+  completed: string[];
+};
