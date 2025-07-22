@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react';
 import {
   Animated,
   Dimensions,
@@ -9,8 +9,8 @@ import {
   TouchableOpacity,
   TouchableWithoutFeedback,
   View,
-} from "react-native";
-import { Portal } from "react-native-portalize";
+} from 'react-native';
+import { Portal } from 'react-native-portalize';
 
 type TextBoxProps = {
   label: string;
@@ -21,13 +21,16 @@ type LabelProps = TextBoxProps & {
   options: string[];
 };
 
-const SCREEN_HEIGHT = Dimensions.get("window").height;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 export const TextBox: React.FC<TextBoxProps> = ({ label, onChange }) => {
   return (
     <View style={styles.textBox}>
       <Text>{label}</Text>
-      <TextInput style={styles.textBoxInput} onChangeText={onChange} />
+      <TextInput
+        style={styles.textBoxInput}
+        onChangeText={onChange}
+      />
     </View>
   );
 };
@@ -67,7 +70,10 @@ export const Select: React.FC<LabelProps> = ({ label, options, onChange }) => {
     <View style={styles.root}>
       <View style={styles.textBox}>
         <Text>{label}</Text>
-        <TouchableOpacity style={{ zIndex: 100 }} onPress={showSheet}>
+        <TouchableOpacity
+          style={{ zIndex: 100 }}
+          onPress={showSheet}
+        >
           <TextInput
             editable={false}
             value={selected}
@@ -110,26 +116,26 @@ const styles = StyleSheet.create({
   textBox: {
     flex: 1,
     gap: 10,
-    width: "100%",
+    width: '100%',
     marginBottom: 26,
   },
   textBoxInput: {
     borderWidth: 1,
     padding: 16,
     borderRadius: 10,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
   },
   backdrop: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    backgroundColor: 'rgba(0, 0, 0, 0.3)',
     zIndex: 50,
   },
   bottomSheet: {
-    position: "absolute",
+    position: 'absolute',
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
     paddingBottom: 80,
     paddingTop: 20,
     paddingHorizontal: 20,
@@ -140,18 +146,18 @@ const styles = StyleSheet.create({
     maxHeight: 300,
   },
   optionScrollable: {
-    width: "100%",
+    width: '100%',
   },
   option: {
     padding: 16,
-    width: "100%",
+    width: '100%',
   },
   textOption: {
     fontSize: 18,
-    textAlign: "center",
+    textAlign: 'center',
   },
   root: {
     flex: 1,
-    position: "relative",
+    position: 'relative',
   },
 });

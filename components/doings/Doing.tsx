@@ -1,11 +1,11 @@
-import { $currentDate } from "@/stores/DateStore";
-import { $doings, isCompleted } from "@/stores/DoingsStore";
-import { Ionicons } from "@expo/vector-icons";
-import { useStore } from "@nanostores/react";
-import { useRouter } from "expo-router";
-import { Text } from "react-native";
-import { UnstyledButton } from "../ui/Buttons";
-import { Card } from "../ui/Card";
+import { $currentDate } from '@/stores/DateStore';
+import { $doings, isCompleted } from '@/stores/DoingsStore';
+import { Ionicons } from '@expo/vector-icons';
+import { useStore } from '@nanostores/react';
+import { useRouter } from 'expo-router';
+import { Text } from 'react-native';
+import { UnstyledButton } from '../ui/Buttons';
+import { Card } from '../ui/Card';
 
 type DoingProps = {
   id: string;
@@ -28,7 +28,7 @@ export const Doing: React.FC<DoingProps> = ({ id }) => {
         [id]: {
           ...current[id],
           completed: item.completed.filter(
-            (c) => c.slice(0, 10) !== currentDate.slice(0, 10),
+            (c) => c.slice(0, 10) !== currentDate.slice(0, 10)
           ),
         },
       });
@@ -51,25 +51,29 @@ export const Doing: React.FC<DoingProps> = ({ id }) => {
   };
 
   return (
-    <Card style={ completedToday ? { backgroundColor: "#fafafa" } : {} }>
+    <Card style={completedToday ? { backgroundColor: '#fafafa' } : {}}>
       <Card.Row>
         <UnstyledButton
           onPress={goToHabit}
           text={item.title}
           textStyle={{
-            textDecorationLine: completedToday ? "line-through" : "none",
+            textDecorationLine: completedToday ? 'line-through' : 'none',
           }}
         />
         <UnstyledButton
           onPress={toggleComplete}
-          icon={completedToday ? "checkmark-circle" : "checkmark-circle-outline"}
+          icon={
+            completedToday ? 'checkmark-circle' : 'checkmark-circle-outline'
+          }
           iconSize={20}
         />
       </Card.Row>
       <Card.Divider />
       <Card.Row>
         <Text>{item.frequency}</Text>
-        <Text><Ionicons name="flame" /> 8</Text>
+        <Text>
+          <Ionicons name='flame' /> 8
+        </Text>
         <Text>Days Remaining</Text>
       </Card.Row>
     </Card>

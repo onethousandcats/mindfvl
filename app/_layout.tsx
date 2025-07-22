@@ -1,5 +1,5 @@
-import { Stack } from "expo-router";
-import { Host } from "react-native-portalize";
+import { Stack } from 'expo-router';
+import { Host } from 'react-native-portalize';
 
 export default function RootLayout() {
   return (
@@ -8,7 +8,7 @@ export default function RootLayout() {
         screenOptions={{
           contentStyle: {
             flex: 1,
-            backgroundColor: "#fff",
+            backgroundColor: '#fff',
           },
           headerShown: false,
         }}

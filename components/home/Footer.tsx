@@ -1,8 +1,8 @@
-import { $currentDate } from "@/stores/DateStore";
-import { useStore } from "@nanostores/react";
-import { useRouter } from "expo-router";
-import { StyleSheet, View } from "react-native";
-import { Button } from "../ui/Buttons";
+import { $currentDate } from '@/stores/DateStore';
+import { useStore } from '@nanostores/react';
+import { useRouter } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
+import { Button } from '../ui/Buttons';
 
 export const Footer = () => {
   const date = useStore($currentDate);
@@ -20,21 +20,34 @@ export const Footer = () => {
 
   return (
     <View style={styles.footer}>
-      <Button onPress={() => setDate(-1)} icon="chevron-back-outline" />
-      <Button onPress={createNew} icon="calendar-outline" />
-      <Button onPress={createNew} icon="add" text="New Doing" />
-      <Button onPress={() => setDate(1)} icon="chevron-forward-outline" />
+      <Button
+        onPress={() => setDate(-1)}
+        icon='chevron-back-outline'
+      />
+      <Button
+        onPress={createNew}
+        icon='calendar-outline'
+      />
+      <Button
+        onPress={createNew}
+        icon='add'
+        text='New Doing'
+      />
+      <Button
+        onPress={() => setDate(1)}
+        icon='chevron-forward-outline'
+      />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   footer: {
-    flexDirection: "row",
-    backgroundColor: "#ffffff",
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
     padding: 20,
     paddingHorizontal: 30,
-    justifyContent: "space-between",
+    justifyContent: 'space-between',
     marginBottom: 20,
   },
 });

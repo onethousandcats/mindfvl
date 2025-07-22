@@ -1,8 +1,8 @@
-import { Header } from "@/components/ui/Header";
-import { $doings } from "@/stores/DoingsStore";
-import { useStore } from "@nanostores/react";
-import { useLocalSearchParams } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { Header } from '@/components/ui/Header';
+import { $doings } from '@/stores/DoingsStore';
+import { useStore } from '@nanostores/react';
+import { useLocalSearchParams } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
 
 export default function HabitScreen() {
   const { id } = useLocalSearchParams();
@@ -18,7 +18,7 @@ export default function HabitScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    flexDirection: 'column',
     marginTop: 40,
     gap: 30,
   },

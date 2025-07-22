@@ -1,5 +1,5 @@
-import { useRouter } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { useRouter } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
 
 export const Footer = () => {
   const router = useRouter();
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   footer: {
     padding: 20,
     paddingHorizontal: 30,
-    alignItems: "center",
+    alignItems: 'center',
     marginBottom: 20,
   },
 });

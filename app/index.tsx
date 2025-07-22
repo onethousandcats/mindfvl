@@ -1,12 +1,12 @@
-import { Doing } from "@/components/doings/Doing";
-import { Footer } from "@/components/home/Footer";
-import { Header } from "@/components/ui/Header";
-import { Subheader } from "@/components/ui/Subheader";
-import { formattedDate } from "@/helpers/date";
-import { $currentDate } from "@/stores/DateStore";
-import { $doings } from "@/stores/DoingsStore";
-import { useStore } from "@nanostores/react";
-import { SafeAreaView, ScrollView, StyleSheet, View } from "react-native";
+import { Doing } from '@/components/doings/Doing';
+import { Footer } from '@/components/home/Footer';
+import { Header } from '@/components/ui/Header';
+import { Subheader } from '@/components/ui/Subheader';
+import { formattedDate } from '@/helpers/date';
+import { $currentDate } from '@/stores/DateStore';
+import { $doings } from '@/stores/DoingsStore';
+import { useStore } from '@nanostores/react';
+import { SafeAreaView, ScrollView, StyleSheet, View } from 'react-native';
 
 export default function Index() {
   const doings = useStore($doings);
@@ -21,7 +21,10 @@ export default function Index() {
         </View>
         <ScrollView>
           {Object.entries(doings).map(([key, _]) => (
-            <Doing key={key} id={key} />
+            <Doing
+              key={key}
+              id={key}
+            />
           ))}
         </ScrollView>
       </SafeAreaView>
@@ -33,7 +36,7 @@ export default function Index() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "column",
+    flexDirection: 'column',
     marginTop: 100,
     marginHorizontal: 30,
     gap: 30,

@@ -1,5 +1,5 @@
-import { Slot } from "expo-router";
-import { StyleSheet, View } from "react-native";
+import { Slot } from 'expo-router';
+import { StyleSheet, View } from 'react-native';
 
 export default function Layout() {
   return (
