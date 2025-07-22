@@ -1,7 +1,9 @@
 import { $currentDate } from "@/stores/DateStore";
 import { $doings, isCompleted } from "@/stores/DoingsStore";
+import { Ionicons } from "@expo/vector-icons";
 import { useStore } from "@nanostores/react";
 import { useRouter } from "expo-router";
+import { Text } from "react-native";
 import { UnstyledButton } from "../ui/Buttons";
 import { Card } from "../ui/Card";
 
@@ -15,8 +17,6 @@ export const Doing: React.FC<DoingProps> = ({ id }) => {
   const currentDate = useStore($currentDate);
 
   const completedToday = useStore(isCompleted(id));
-
-  console.log("completed-today", completedToday);
 
   const toggleComplete = () => {
     const current = $doings.get();
@@ -51,19 +51,27 @@ export const Doing: React.FC<DoingProps> = ({ id }) => {
   };
 
   return (
-    <Card>
-      <UnstyledButton
-        onPress={goToHabit}
-        text={item.title}
-        textStyle={{
-          textDecorationLine: completedToday ? "line-through" : "none",
-        }}
-      />
-      <UnstyledButton
-        onPress={toggleComplete}
-        icon={completedToday ? "checkmark-circle" : "checkmark-circle-outline"}
-        iconSize={20}
-      />
+    <Card style={ completedToday ? { backgroundColor: "#fafafa" } : {} }>
+      <Card.Row>
+        <UnstyledButton
+          onPress={goToHabit}
+          text={item.title}
+          textStyle={{
+            textDecorationLine: completedToday ? "line-through" : "none",
+          }}
+        />
+        <UnstyledButton
+          onPress={toggleComplete}
+          icon={completedToday ? "checkmark-circle" : "checkmark-circle-outline"}
+          iconSize={20}
+        />
+      </Card.Row>
+      <Card.Divider />
+      <Card.Row>
+        <Text>{item.frequency}</Text>
+        <Text><Ionicons name="flame" /> 8</Text>
+        <Text>Days Remaining</Text>
+      </Card.Row>
     </Card>
   );
 };

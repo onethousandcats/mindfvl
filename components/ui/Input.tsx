@@ -38,7 +38,6 @@ export const Select: React.FC<LabelProps> = ({ label, options, onChange }) => {
   const slideAnimation = useRef(new Animated.Value(SCREEN_HEIGHT)).current;
 
   const showSheet = () => {
-    console.log("test");
     setSheetVisible(true);
     Animated.timing(slideAnimation, {
       toValue: 0,
@@ -115,10 +114,10 @@ const styles = StyleSheet.create({
     marginBottom: 26,
   },
   textBoxInput: {
-    borderWidth: 2,
+    borderWidth: 1,
     padding: 16,
     borderRadius: 10,
-    marginBottom: 10,
+    borderColor: "#ccc",
   },
   backdrop: {
     ...StyleSheet.absoluteFillObject,
